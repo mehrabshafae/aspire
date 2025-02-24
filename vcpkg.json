@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "jsoncpp",
+    "crow",
+    "cxxopts"
+  ]
+}
