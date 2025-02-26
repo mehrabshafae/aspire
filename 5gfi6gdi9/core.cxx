@@ -35,7 +35,7 @@
 #include <omp.h>
 // #include <curl/curl.h>
 #include <json/json.h>
-#include "crow.h"
+// #include "crow.h"
 #include <cxxopts.hpp>
 
 //--------------------------------------------
@@ -74,7 +74,7 @@ using namespace std::string_literals;
 //--------------------------------------------
 #define sleep(x) std::this_thread::sleep_for(std::chrono::seconds(x))
 //--------------------------------------------
-#define CROW_STATIC_DIRECTORY "dontlikeme/" 
+// #define CROW_STATIC_DIRECTORY "dontlikeme/"
 //=================================================================
 static highclock_start;
 //=================================================================
@@ -90,8 +90,8 @@ public:
             auto filePath = std::filesystem::absolute(path).lexically_normal();
             const auto baseDir = std::filesystem::absolute(publicDir).lexically_normal();
 
-            if (!filePath.has_root_path() || !baseDir.has_root_path() || 
-                filePath.string().rfind(baseDir.string(), 0) != 0 || 
+            if (!filePath.has_root_path() || !baseDir.has_root_path() ||
+                filePath.string().rfind(baseDir.string(), 0) != 0 ||
                 !is_valid_file(filePath)) {
                 return std::nullopt;
             }
@@ -251,7 +251,7 @@ C++ 23 -| maybe
 // };
 // static CurlClient fetch;
 //=================================================================
-static crow::SimpleApp server;
+// static crow::SimpleApp server;
 //=================================================================
 
 //--------------------------------------------
@@ -301,34 +301,34 @@ public:
         //=================================================================
         atexit(user_time);
         //=================================================================
-        CROW_ROUTE(server, "/home/<path>")
-        ([](const crow::request& req, crow::response& res, std::string_view path) {
-            std::filesystem::path file_path = "./public_html/" + std::string(path);
+        // CROW_ROUTE(server, "/home/<path>")
+        // ([](const crow::request& req, crow::response& res, std::string_view path) {
+        //     std::filesystem::path file_path = "./public_html/" + std::string(path);
 
-            auto file_content = fileManager.readFile(file_path);
-            if (!file_content) {
-                file_path += "/index.html";
-                file_content = fileManager.readFile(file_path);
-                if (!file_content) {
-                    res.code = 404;
-                    res.write("File not found");
-                    res.end();
-                    return;
-                }
-            }
+        //     auto file_content = fileManager.readFile(file_path);
+        //     if (!file_content) {
+        //         file_path += "/index.html";
+        //         file_content = fileManager.readFile(file_path);
+        //         if (!file_content) {
+        //             res.code = 404;
+        //             res.write("File not found");
+        //             res.end();
+        //             return;
+        //         }
+        //     }
 
-            if (file_path.extension() != ".html") {
-                res.code = 403;
-                res.write("Access forbidden: only HTML files are allowed.");
-                res.end();
-                return;
-            }
+        //     if (file_path.extension() != ".html") {
+        //         res.code = 403;
+        //         res.write("Access forbidden: only HTML files are allowed.");
+        //         res.end();
+        //         return;
+        //     }
 
-            res.set_header("Content-Type", "text/html");
+        //     res.set_header("Content-Type", "text/html");
 
-            res.write(*file_content);
-            res.end();
-        });
+        //     res.write(*file_content);
+        //     res.end();
+        // });
         //=================================================================
     }
 };

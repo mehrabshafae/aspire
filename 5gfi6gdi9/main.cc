@@ -1,20 +1,20 @@
 #include "core.cxx"
 // #include "bot.cc"
 
-fn sp() {
-    CROW_ROUTE(server, "/json")
-    ([]{
-        crow::json::wvalue x({{"message", "Hello, World!"}});
-        x["message2"] = "Hello, World.. Again!";
-        return x;
-    });
+// fn sp() {
+//     CROW_ROUTE(server, "/json")
+//     ([]{
+//         crow::json::wvalue x({{"message", "Hello, World!"}});
+//         x["message2"] = "Hello, World.. Again!";
+//         return x;
+//     });
 
-    server.port(80)
-    .server_name("Core")
-    .multithreaded().run();
-}
+//     server.port(80)
+//     .server_name("Core")
+//     .multithreaded().run();
+// }
 
-fn $init() { 
+fn $init() {
     argopt.add_options()
             ("t,test", "Run in test mode")
             ("d,debug", "Enable debugging")
@@ -59,7 +59,7 @@ fn $run() {
     // });
     fire.task([]() -> void {
         if (!SERVER) return;
-        sp();
+        // sp();
     });
     fire.task([]() -> void {
         try {
