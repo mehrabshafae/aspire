@@ -76,8 +76,8 @@ set_target_properties(
 
 # ---------------------------------------------------------------------------------
 
-find_package(Crow CONFIG REQUIRED)
-target_link_libraries(main PRIVATE Crow::Crow asio::asio)
+find_package(asio CONFIG REQUIRED)
+target_link_libraries(main PRIVATE asio::asio)
 
 find_package(jsoncpp CONFIG REQUIRED)
 target_link_libraries(main PRIVATE JsonCpp::JsonCpp)
