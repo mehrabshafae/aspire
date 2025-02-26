@@ -1,7 +1,3 @@
 {
-  "dependencies": [
-    "jsoncpp",
-    "crow",
-    "cxxopts"
-  ]
+  "dependencies": ["jsoncpp", "asio", "cxxopts"]
 }
