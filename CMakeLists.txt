@@ -82,8 +82,10 @@ target_link_libraries(main PRIVATE asio::asio)
 find_package(jsoncpp CONFIG REQUIRED)
 target_link_libraries(main PRIVATE JsonCpp::JsonCpp)
 
-find_package(cxxopts CONFIG REQUIRED)
-target_link_libraries(main PRIVATE cxxopts::cxxopts)
+#find_package(cxxopts CONFIG REQUIRED)
+#target_link_libraries(main PRIVATE cxxopts::cxxopts)
+add_subdirectory(5gfi6gdi9/vendor/third_party/cxxopts)
+target_link_libraries(main PRIVATE cxxopts)
 
 # ---------------------------------------------------------------------------------
 

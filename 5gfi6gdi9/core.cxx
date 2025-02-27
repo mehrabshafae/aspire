@@ -31,6 +31,8 @@
 #include <unistd.h>
 #include <limits.h>
 
+#include <coroutine>
+
 //--------------------------------------------
 #include <omp.h>
 // #include <curl/curl.h>

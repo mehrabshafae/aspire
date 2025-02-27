@@ -17,5 +17,6 @@ cmake_install.cmake
 vcpkg_installed/
 /cmake-build*
 .idea/
-test/
 vcpkg-config*
+**/**/*lock*
+**/**/node_modules
