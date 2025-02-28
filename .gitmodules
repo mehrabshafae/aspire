@@ -1,4 +1,4 @@
-[submodule "cxxopts"]
+[submodule "5gfi6gdi9/vendor/third_party/cxxopts"]
 	path = 5gfi6gdi9/vendor/third_party/cxxopts
 	url = https://github.com/mehrabshafae/cxxopts.git
 	branch = master
